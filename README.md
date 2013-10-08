@@ -14,3 +14,10 @@ Configure PuppetDB
     * Otherwise, change through the puppet portal
         * Add `listen_host` to `pe_puppetdb` class with value of `0.0.0.0`
         * Force a puppet run to change in /etc/puppetlabs/puppetdb/conf.d/jetty.ini
+
+Copyright
+---------
+
+Copyright (c) 2013 CloudHealth Tech. See LICENSE.txt for further details.
+
+Puppet, PuppetDB and related trademarks are Copyright (c) 2005-2013 Puppet Labs Inc. Puppet and PuppetDB are released under the Apache 2.0 license.
