@@ -18,7 +18,7 @@ Configure PuppetDB
 About
 ---------
 
-puppetdb-rest was inspired by (spice)[https://github.com/danryan/spice]
+puppetdb-rest was inspired by [spice](https://github.com/danryan/spice) and follows its framework.
 
 Copyright
 ---------
