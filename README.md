@@ -15,6 +15,11 @@ Configure PuppetDB
         * Add `listen_host` to `pe_puppetdb` class with value of `0.0.0.0`
         * Force a puppet run to change in /etc/puppetlabs/puppetdb/conf.d/jetty.ini
 
+About
+---------
+
+puppetdb-rest was inspired by (spice)[https://github.com/danryan/spice]
+
 Copyright
 ---------
 
