@@ -1,4 +1,4 @@
-module PuppetRestClient::DB
+module PuppetRestClient::PE
   class Base
     attr_accessor :attrs
     alias :to_hash :attrs

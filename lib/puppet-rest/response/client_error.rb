@@ -20,13 +20,14 @@ module PuppetRestClient
       end
 
       def error(body)
-        if body['error'].kind_of?(Array)
+        if body.kind_of?(String)
+          body
+        elsif body['error'].kind_of?(Array)
           body['error'].join(',')
         else
           body['error']
         end
       end
-
     end
   end
 end

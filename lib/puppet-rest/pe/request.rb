@@ -1,12 +1,12 @@
-module PuppetRestClient::DB
+module PuppetRestClient::PE
   module Request
 
     def get(path, params=nil, options=Mash.new)
       request(:get, path, params, options)
     end
 
-    def api_path(entity)
-      '/%s/%s' % [api_version, entity]
+    def api_path(entity, key)
+      '/%s/%s/%s' % [environment, entity, key]
     end
 
     private
@@ -16,8 +16,7 @@ module PuppetRestClient::DB
 
       default_options = {
         :headers => {
-          :accept => 'application/json',
-          :content_type => 'application/json',
+          :accept => 'pson',
           :user_agent => user_agent
         }
       }

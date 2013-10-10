@@ -1,12 +1,12 @@
-module PuppetRestClient::DB
-  extend PuppetRestClient::DB::Config
+module PuppetRestClient::PE
+  extend PuppetRestClient::PE::Config
 
   class << self
-    # Convenience alias for PuppetRestClient::DB::Connection.new
+    # Convenience alias for PuppetRestClient::DbConnection.new
     #
-    # return [PuppetRestClient::DB::Connection]
+    # return [PuppetRestClient::DbConnection]
     def new(options=Mash.new)
-      PuppetRestClient::DB::Connection.new(options)
+      PuppetRestClient::PE::Connection.new(options)
     end
 
     # Delegate methods to PuppetRestClient::Connection

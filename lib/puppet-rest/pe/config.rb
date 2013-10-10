@@ -1,4 +1,4 @@
-module PuppetRestClient
+module PuppetRestClient::PE
   module Config
 
     # The default Chef server URL
