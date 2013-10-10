@@ -1,4 +1,4 @@
-module PuppetDbRestClient
+module PuppetRestClient
   class Error < StandardError
     attr_reader :http_headers, :wrapped_exception
 
@@ -18,25 +18,25 @@ module PuppetDbRestClient
 
   end
 
-  class Error::BadRequest < PuppetDbRestClient::Error
+  class Error::BadRequest < PuppetRestClient::Error
   end
 
-  class Error::Unauthorized < PuppetDbRestClient::Error
+  class Error::Unauthorized < PuppetRestClient::Error
   end
 
-  class Error::Forbidden < PuppetDbRestClient::Error
+  class Error::Forbidden < PuppetRestClient::Error
   end
 
-  class Error::NotFound < PuppetDbRestClient::Error
+  class Error::NotFound < PuppetRestClient::Error
   end
 
-  class Error::NotAcceptable < PuppetDbRestClient::Error
+  class Error::NotAcceptable < PuppetRestClient::Error
   end
 
-  class Error::Conflict < PuppetDbRestClient::Error
+  class Error::Conflict < PuppetRestClient::Error
   end
 
-  class Error::ClientError < PuppetDbRestClient::Error
+  class Error::ClientError < PuppetRestClient::Error
   end
 
 end

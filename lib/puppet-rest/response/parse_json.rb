@@ -1,4 +1,4 @@
-module PuppetDbRestClient
+module PuppetRestClient
   module Response
     class ParseJSON < Faraday::Response::Middleware
 

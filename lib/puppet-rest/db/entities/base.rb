@@ -1,4 +1,4 @@
-module PuppetDbRestClient
+module PuppetRestClient::DB
   class Base
     attr_accessor :attrs
     alias :to_hash :attrs
@@ -47,7 +47,7 @@ module PuppetDbRestClient
     # Initializes a new object
     #
     # @param attrs [Hash]
-    # @return [PuppetDbRestClient::Base]
+    # @return [PuppetRestClient::Base]
     def initialize(attrs=Mash.new)
       self.class.attr_reader *attrs.keys
       attrs.stringify_keys!
@@ -76,7 +76,7 @@ module PuppetDbRestClient
     # Update the attributes of an object
     #
     # @param attrs [Hash]
-    # @return [PuppetDbRestClient::Base]
+    # @return [PuppetRestClient::Base]
     def update(attrs)
       @attrs = attrs
       self

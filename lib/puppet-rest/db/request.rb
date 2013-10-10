@@ -1,4 +1,4 @@
-module PuppetDbRestClient
+module PuppetRestClient::DB
   module Request
 
     def get(path, params={}, options=Mash.new)
@@ -24,7 +24,7 @@ module PuppetDbRestClient
 
       options = default_options.deep_merge(connection_options)
 
-      # @connection = Faraday.new(PuppetDbRestClient.server_url, options, &PuppetDbRestClient.middleware)
+      # @connection = Faraday.new(PuppetRestClient.server_url, options, &PuppetRestClient.middleware)
       Faraday.new(server_url, options, &middleware)
     end
 
@@ -67,7 +67,7 @@ module PuppetDbRestClient
 
       return response.body
     #rescue Faraday::Error::ClientError
-    #  raise PuppetDbRestClient::Error::ClientError
+    #  raise PuppetRestClient::Error::ClientError
     end
 
   end

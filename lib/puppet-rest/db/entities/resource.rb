@@ -1,5 +1,5 @@
-module PuppetDbRestClient
-  class Resource < Base
+module PuppetRestClient::DB
+  class Resource < PuppetRestClient::DB::Base
     attr_reader :parameters, :sourceline, :sourcefile, :exported, :tags, :title, :type, :resource, :certname
 
     def initialize(attrs=Mash.new)

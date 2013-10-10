@@ -1,11 +1,11 @@
-module PuppetDbRestClient
+module PuppetRestClient
   module Config
 
     # The default Chef server URL
-    DEFAULT_SERVER_URL = 'http://localhost:8080'
+    DEFAULT_SERVER_URL = 'http://localhost:8140'
 
     # The default Spice User-Agent header
-    DEFAULT_USER_AGENT = "PuppetDbRestClient #{PuppetDbRestClient::VERSION}"
+    DEFAULT_USER_AGENT = "PuppetRestClient #{PuppetRestClient::VERSION}"
 
     # Default connection options
     DEFAULT_CONNECTION_OPTIONS = {}
@@ -16,13 +16,12 @@ module PuppetDbRestClient
     # Default key file
     DEFAULT_CLIENT_KEY = ''
 
-    # Default puppetdb rest api version (e.g. v1, v2, v3)
-    DEFAULT_API_VERSION = 'v2'
+    DEFAULT_ENVIRONMENT = 'production'
 
     # An array of valid config options
     VALID_OPTIONS_KEYS = [
       :server_url,
-      :api_version,
+      :environment,
       :client_name,
       :client_key,
       :user_agent,
@@ -32,8 +31,8 @@ module PuppetDbRestClient
 
     # Default middleware stack
     DEFAULT_MIDDLEWARE = Proc.new do |builder|
-      builder.use PuppetDbRestClient::Response::ParseJSON
-      builder.use PuppetDbRestClient::Response::ClientError
+      builder.use PuppetRestClient::Response::ParseJSON
+      builder.use PuppetRestClient::Response::ClientError
       builder.adapter Faraday.default_adapter
     end
 
@@ -46,15 +45,15 @@ module PuppetDbRestClient
       base.reset
     end # def self.extended
 
-    # Convenience method to configure PuppetDbRestClient in a block
-    # @example Configuring PuppetDbRestClient
-    #   PuppetDbRestClient.setup do |s|
+    # Convenience method to configure PuppetRestClient in a block
+    # @example Configuring PuppetRestClient
+    #   PuppetRestClient.setup do |s|
     #     s.server_url  = "http://puppetdb.example.com:8081"
     #     s.client_name = "admin"
-    #     s.client_key    = PuppetDbRestClient.read_key_file("/path/to/key_file.pem")
+    #     s.client_key    = PuppetRestClient.read_key_file("/path/to/key_file.pem")
     #   end
-    # @yieldparam PuppetDbRestClient
-    # @yieldreturn PuppetDbRestClient
+    # @yieldparam PuppetRestClient
+    # @yieldreturn PuppetRestClient
     def setup
       yield self
       self
@@ -70,7 +69,7 @@ module PuppetDbRestClient
     # Reset all config options to their defaults
     def reset
       self.user_agent         = DEFAULT_USER_AGENT
-      self.api_version        = DEFAULT_API_VERSION
+      self.environment        = DEFAULT_ENVIRONMENT
       self.server_url         = DEFAULT_SERVER_URL
       self.client_name        = DEFAULT_CLIENT_NAME
       self.client_key         = DEFAULT_CLIENT_KEY

@@ -1,7 +1,7 @@
-PuppetDB Ruby REST Client
+Puppet Ruby REST Client
 ========
 
-Interact with PuppetDB through its REST Api
+Interact with Puppet and PuppetDB through their REST Apis
 
 Configure PuppetDB
 --------
@@ -18,7 +18,7 @@ Configure PuppetDB
 About
 ---------
 
-puppetdb-rest was inspired by [spice](https://github.com/danryan/spice) and follows its framework.
+puppet-rest was inspired by [spice](https://github.com/danryan/spice) and follows its framework.
 
 Copyright
 ---------

@@ -1,4 +1,4 @@
-module PuppetDbRestClient
+module PuppetRestClient::DB
   class Connection
     module FactNames
       def fact_names

@@ -1,5 +1,5 @@
-module PuppetDbRestClient
-  class Node < Base
+module PuppetRestClient::DB
+  class Node < PuppetRestClient::DB::Base
     attr_reader :name, :deactivated, :catalog_timestamp, :facts_timestamp, :report_timestamp
     attr_accessor :connection
 

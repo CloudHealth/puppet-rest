@@ -1,9 +1,9 @@
-module PuppetDbRestClient
+module PuppetRestClient::DB
   class Connection
     module Resources
       def resources(options=Mash.new)
         get(api_path("resources/#{name}")).map {|resource|
-          PuppetDbRestClient::Resource.get_or_new resource
+          PuppetRestClient::DB::Resource.get_or_new resource
         }
       end
     end
