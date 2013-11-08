@@ -14,6 +14,12 @@ Configure PuppetDB
     * Otherwise, change through the puppet portal
         * Add `listen_host` to `pe_puppetdb` class with value of `0.0.0.0`
         * Force a puppet run to change in /etc/puppetlabs/puppetdb/conf.d/jetty.ini
+* If PuppetDB is using its own certs, and not the Puppet Master's:
+    * sudo /opt/puppet/sbin/puppetdb-ssl-setup -f
+    * sudo /etc/init.d/pe-puppetdb restart
+    * (Wait a few min for it to actually restart)
+* Make sure your ec2 security groups have 8081 open between your internal instances 
+
 
 About
 ---------
