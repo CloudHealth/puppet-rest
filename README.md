@@ -28,7 +28,10 @@ Certificates
     * /etc/puppetlabs/puppet/ssl/private_keys/aggregator.pem
     * /etc/puppetlabs/puppet/ssl/certs/aggregator.pem
     * /etc/puppetlabs/puppet/ssl/certs/ca.pem
-* `curl -X GET --cacert ca.pem --cert aggregator-cert.pem --key aggregator-priv-key.pem 'https://ec2-X-X-X-X.compute-1.amazonaws.com:8081/v2/facts'` 
+* Test:
+    * `curl -X GET --cacert ca.pem --cert aggregator-cert.pem --key aggregator-priv-key.pem 'https://ec2-X-X-X-X.compute-1.amazonaws.com:8081/v2/facts'` 
+    * or
+    * `curl -X GET -k --cert aggregator-cert.pem --key aggregator-priv-key.pem 'https://ec2-X-X-X-X.compute-1.amazonaws.com:8081/v2/facts'` 
 
 Useful Links
 ---------
