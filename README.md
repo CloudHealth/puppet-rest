@@ -20,6 +20,15 @@ Configure PuppetDB
     * (Wait a few min for it to actually restart)
 * Make sure your ec2 security groups have 8081 open between your internal instances 
 
+Certificates
+---------
+
+* On Puppet Master: `sudo puppet cert --generate aggregator`
+* Copy the 3 files to a remote computer:
+    * /etc/puppetlabs/puppet/ssl/private_keys/aggregator.pem
+    * /etc/puppetlabs/puppet/ssl/certs/aggregator.pem
+    * /etc/puppetlabs/puppet/ssl/certs/ca.pem
+* `curl -X GET --cacert ca.pem --cert aggregator-cert.pem --key aggregator-priv-key.pem 'https://ec2-X-X-X-X.compute-1.amazonaws.com:8081/v2/facts'` 
 
 About
 ---------
