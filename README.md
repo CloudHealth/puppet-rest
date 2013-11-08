@@ -30,6 +30,14 @@ Certificates
     * /etc/puppetlabs/puppet/ssl/certs/ca.pem
 * `curl -X GET --cacert ca.pem --cert aggregator-cert.pem --key aggregator-priv-key.pem 'https://ec2-X-X-X-X.compute-1.amazonaws.com:8081/v2/facts'` 
 
+Useful Links
+---------
+
+* http://docs.puppetlabs.com/puppetdb/latest/install_from_source.html
+* http://docs.puppetlabs.com/puppetdb/latest/configure.html#certificate-whitelist
+* http://docs.puppetlabs.com/puppetdb/1.5/api/query/curl.html
+* http://docs.puppetlabs.com/guides/inventory_service.html
+
 About
 ---------
 
