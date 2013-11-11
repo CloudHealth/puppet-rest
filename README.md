@@ -3,6 +3,19 @@ Puppet Ruby REST Client
 
 Interact with Puppet and PuppetDB through their REST Apis
 
+Certificates
+---------
+
+* On Puppet Master: `sudo puppet cert --generate aggregator`
+* Copy the 3 files to a remote computer:
+    * /etc/puppetlabs/puppet/ssl/private_keys/aggregator.pem
+    * /etc/puppetlabs/puppet/ssl/certs/aggregator.pem
+    * /etc/puppetlabs/puppet/ssl/certs/ca.pem
+* Test:
+    * `curl -X GET --cacert ca.pem --cert aggregator-cert.pem --key aggregator-priv-key.pem 'https://ec2-X-X-X-X.compute-1.amazonaws.com:8081/v2/facts'` 
+    * or
+    * `curl -X GET -k --cert aggregator-cert.pem --key aggregator-priv-key.pem 'https://ec2-X-X-X-X.compute-1.amazonaws.com:8081/v2/facts'` 
+
 Configure PuppetDB
 --------
 
@@ -20,18 +33,26 @@ Configure PuppetDB
     * (Wait a few min for it to actually restart)
 * Make sure your ec2 security groups have 8081 open between your internal instances 
 
-Certificates
----------
+Configure Puppet Master
+--------
 
-* On Puppet Master: `sudo puppet cert --generate aggregator`
-* Copy the 3 files to a remote computer:
-    * /etc/puppetlabs/puppet/ssl/private_keys/aggregator.pem
-    * /etc/puppetlabs/puppet/ssl/certs/aggregator.pem
-    * /etc/puppetlabs/puppet/ssl/certs/ca.pem
-* Test:
-    * `curl -X GET --cacert ca.pem --cert aggregator-cert.pem --key aggregator-priv-key.pem 'https://ec2-X-X-X-X.compute-1.amazonaws.com:8081/v2/facts'` 
-    * or
-    * `curl -X GET -k --cert aggregator-cert.pem --key aggregator-priv-key.pem 'https://ec2-X-X-X-X.compute-1.amazonaws.com:8081/v2/facts'` 
+* Edit /etc/puppetlabs/puppet/auth.conf, and change:
+
+```
+path ~ ^/catalog/([^/]+)$
+method find
+auth yes
+allow $1
+```
+
+to
+
+```
+path ~ ^/catalog/([^/]+)$
+method find
+auth yes
+allow $1, aggregator
+```
 
 Useful Links
 ---------
