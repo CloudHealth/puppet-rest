@@ -47,12 +47,12 @@ allow $1
 
 to
 
-```
+<pre>
 path ~ ^/catalog/([^/]+)$
 method find
 auth yes
-allow $1, aggregator
-```
+allow $1<b>, aggregator</b>
+</pre>
 
 Useful Links
 ---------
