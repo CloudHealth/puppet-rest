@@ -2,6 +2,7 @@ module PuppetRestClient::PE
   class Connection
     include PuppetRestClient::PE::Connection::Node
     include PuppetRestClient::PE::Connection::Catalog
+    include PuppetRestClient::PE::Connection::CaCert
     include PuppetRestClient::PE::Request
 
     Config::VALID_OPTIONS_KEYS.each do |key|

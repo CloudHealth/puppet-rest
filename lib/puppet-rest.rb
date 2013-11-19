@@ -25,6 +25,7 @@ require_relative 'puppet-rest/pe/entities/node'
 require_relative 'puppet-rest/pe/entities/catalog'
 require_relative 'puppet-rest/pe/connection/node'
 require_relative 'puppet-rest/pe/connection/catalog'
+require_relative 'puppet-rest/pe/connection/ca_cert'
 require_relative 'puppet-rest/pe/connection'
 require_relative 'puppet-rest/pe/client'
 

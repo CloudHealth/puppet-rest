@@ -16,7 +16,7 @@ module PuppetRestClient::PE
 
       default_options = {
         :headers => {
-          :accept => 'pson',
+          :accept => accept,
           :user_agent => user_agent
         }
       }

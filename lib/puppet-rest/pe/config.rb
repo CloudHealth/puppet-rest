@@ -18,6 +18,8 @@ module PuppetRestClient::PE
 
     DEFAULT_ENVIRONMENT = 'production'
 
+    DEFAULT_ACCEPT = 'pson'
+
     # An array of valid config options
     VALID_OPTIONS_KEYS = [
       :server_url,
@@ -26,7 +28,8 @@ module PuppetRestClient::PE
       :client_key,
       :user_agent,
       :connection_options,
-      :middleware
+      :middleware,
+      :accept
     ]
 
     # Default middleware stack
@@ -75,6 +78,7 @@ module PuppetRestClient::PE
       self.client_key         = DEFAULT_CLIENT_KEY
       self.connection_options = DEFAULT_CONNECTION_OPTIONS
       self.middleware         = DEFAULT_MIDDLEWARE
+      self.accept             = DEFAULT_ACCEPT
       self
     end
 
