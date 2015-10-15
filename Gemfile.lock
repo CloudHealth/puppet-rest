@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    puppet-rest (0.0.2)
+    puppet-rest (0.0.3)
       faraday (~> 0.8.8)
       multi_json
 
