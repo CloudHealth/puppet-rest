@@ -1,0 +1,7 @@
+.bundle
+vendor/
+bin/
+*.log
+spec/internal/log
+.ruby*
+.rspec

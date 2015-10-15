@@ -6,15 +6,21 @@ Interact with Puppet and PuppetDB through their REST Apis
 Certificates
 ---------
 
-* On Puppet Master: `sudo puppet cert --generate aggregator`
+* On Puppet Master: `sudo puppet cert --generate learning.puppetlabs.vm`
 * Copy the 3 files to a remote computer:
-    * /etc/puppetlabs/puppet/ssl/private_keys/aggregator.pem
-    * /etc/puppetlabs/puppet/ssl/certs/aggregator.pem
+    * /etc/puppetlabs/puppet/ssl/private_keys/learning.puppetlabs.vm.pem
+    * /etc/puppetlabs/puppet/ssl/certs/learning.puppetlabs.vm.pem
     * /etc/puppetlabs/puppet/ssl/certs/ca.pem
-* Test:
-    * `curl -X GET --cacert ca.pem --cert aggregator-cert.pem --key aggregator-priv-key.pem 'https://ec2-X-X-X-X.compute-1.amazonaws.com:8081/v2/facts'` 
-    * or
-    * `curl -X GET -k --cert aggregator-cert.pem --key aggregator-priv-key.pem 'https://ec2-X-X-X-X.compute-1.amazonaws.com:8081/v2/facts'` 
+* Test 2015.02+
+    * Puppet Enterprise
+        * `curl -X GET --cacert ca.pem --cert learning.puppetlabs.vm.cert.pem --key learning.puppetlabs.vm.priv-key.pem -H 'Accept: pson' 'https://learning.puppetlabs.vm:8140/puppet/v3/node/learning.puppetlabs.vm?environment=production'`
+    * PuppetDB
+        * `curl -X GET -H 'Accept: application/json' --cacert ca.pem --cert learning.puppetlabs.vm.cert.pem --key learning.puppetlabs.vm.priv-key.pem 'https://learning.puppetlabs.vm:8081/pdb/query/v4/facts'`
+* Test Legacy
+    * Puppet Enterprise
+        * `curl -X GET --cacert ca.pem --cert learning.puppetlabs.vm.cert.pem --key learning.puppetlabs.vm.priv-key.pem 'https://learning.puppetlabs.vm:8140/v2/catalogs/learning.puppetlabs.vm'`
+    * PuppetDB
+        * `curl -X GET --cacert ca.pem --cert learning.puppetlabs.vm.cert.pem --key learning.puppetlabs.vm.priv-key.pem 'https://learning.puppetlabs.vm:8081/v2/facts'`
 
 Configure PuppetDB
 --------
