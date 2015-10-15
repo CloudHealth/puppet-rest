@@ -16,7 +16,7 @@ module PuppetRestClient::DB
     # Default key file
     DEFAULT_CLIENT_KEY = ''
 
-    # Default puppetdb rest api version (e.g. v1, v2, v3)
+    # Default puppetdb rest api version (e.g. v1, v2, v3, pdb/query/v4)
     DEFAULT_API_VERSION = 'v2'
 
     # An array of valid config options

@@ -20,10 +20,16 @@ module PuppetRestClient::PE
 
     DEFAULT_ACCEPT = 'pson'
 
+    # Default puppetpe rest api version
+    # v1, v2 leave blank
+    # 2015.2 or greater pass in 'puppet/v3'
+    DEFAULT_API_VERSION = nil
+
     # An array of valid config options
     VALID_OPTIONS_KEYS = [
       :server_url,
       :environment,
+      :api_version,
       :client_name,
       :client_key,
       :user_agent,
@@ -73,6 +79,7 @@ module PuppetRestClient::PE
     def reset
       self.user_agent         = DEFAULT_USER_AGENT
       self.environment        = DEFAULT_ENVIRONMENT
+      self.api_version        = DEFAULT_API_VERSION
       self.server_url         = DEFAULT_SERVER_URL
       self.client_name        = DEFAULT_CLIENT_NAME
       self.client_key         = DEFAULT_CLIENT_KEY

@@ -6,7 +6,11 @@ module PuppetRestClient::PE
     end
 
     def api_path(entity, key)
-      '/%s/%s/%s' % [environment, entity, key]
+      if api_version.nil?
+        '/%s/%s/%s' % [environment, entity, key]
+      else
+        '/%s/%s/%s?environment=%s' % [api_version, entity, key, environment]
+      end
     end
 
     private
