@@ -2,11 +2,11 @@ PATH
   remote: .
   specs:
     puppet-rest (0.0.3)
-      faraday (~> 0.8.8)
+      faraday (>= 0.8.8)
       multi_json
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     activesupport (4.2.4)
       i18n (~> 0.7)
